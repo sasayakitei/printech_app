@@ -1,4 +1,12 @@
-h1
-  | Home#index
-p
-  | Find me in app/views/home/index.html.erb
+h1 Devise Test
+
+- if user_signed_in?
+  p
+    = current_user.email
+    = link_to 'logout', destroy_user_session_path, method: :delete
+- else
+  p
+    = link_to 'sign up', new_user_registration_path
+  p
+    = link_to 'sign in', new_user_session_path 
+

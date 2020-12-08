@@ -1,8 +1,7 @@
 doctype html
 html
   head
-    title
-      | PrintechApp
+    title 人と印刷をつなぐ | コネクプリント
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
@@ -12,4 +11,5 @@ html
       = notice
     p.alert
       = alert
+    = render './shared/header'
     = yield

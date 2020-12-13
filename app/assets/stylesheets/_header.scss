@@ -1,81 +1,98 @@
-@import "./base/mixin";
-@import "./base/variables";
+@import "./common/variables";
+@import "./common/mixin";
 
 $oneLine_bgcolor: $key_color;
 $oneLine_fontcolor: $base_fontcolor;
-$header_bgcolor: $chroma_pattern5;
-$header_fontcolor: $base_fontcolor;
 
 .oneLine {
   padding: 4px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  justify-content: space-between;
+  height: 20px;
+  line-height: 20px;
   background-color: $oneLine_bgcolor;
   color: $oneLine_fontcolor;
-  &__title {
-    min-width: 250px;
+  font-size: 1.4rem;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: $browser_max-width;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+
+  &__title {
+    white-space: nowrap;
+  }
+
   &__subtitle {
-    min-width: 250px;
+    white-space: nowrap;
     text-align: right;
   }
 }
 
 .header {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  width:  $header_width;
+  height: $header_height;
   background-color: $header_bgcolor;
   color: $header_fontcolor;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: $browser_max-width;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__navi {
     display: flex;
     align-items: center;
   }
+
   &__logo {
     margin: 16px;
-    min-width: 200px;
-    text-align: center;
-  }
-  &__logoText {
-    font-family: 'Nico Moji';
-    font-size: 3.8rem;
-    transition: all 300ms 0s ease;
-    &:hover {
-      opacity: 0.5;
+    white-space: nowrap;
+
+    &Text {
+      @include hover_effect(0.5);
+      font-family: 'Nico Moji';
+      font-size: 3.8rem;
     }
   }
-  &__menu {
+
+  &__mainMenu {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 1.6rem;
     margin: 16px;
-    min-width: 400px;
     font-weight: bold;
-  }
-  &__menuItem {
-    margin: 0 24px;
-  }
-  &__linkText {
-    transition: all 300ms 0s ease;
-    &:hover {
-      opacity: 0.5;
+
+    &Item {
+      margin: 0 24px;
+      white-space: nowrap;
     }
   }
+
+  &__linkText {
+    @include hover_effect(0.5);
+  }
+
   %__userMenu {
     position: relative;
-    min-width: 200px;
     height: auto;
     text-align: right;
   }
   &__userMenu {
     @extend %__userMenu;
     margin: 0 16px;
+
     &--signed_in {
       @extend %__userMenu;
       margin: -16px 16px 0;
@@ -86,75 +103,68 @@ $header_fontcolor: $base_fontcolor;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height:80%;
+    height: 80%;
     position: relative;
     bottom: 0;
   }
-  %__btn {
-    display: inline-block;
-    min-width: 120px;
-    height: 60px;
-    padding: 0 16px;
-    margin-left: 8px;
-    border-radius: 8px;
-    font-size: 1.4rem;
-    line-height: 60px;
-    text-align: center;
-    font-weight: bold;
-    transition: all 300ms 0s ease;
-  }
+
   &__btn {
     &--primary {
-      @extend %__btn;
-      border: 1px solid $primary-btn_bordercolor;
-      background-color: $primary-btn_bgcolor;
-      color: $primary-btn_fontcolor;
-      &:hover {
-        background-color: $chroma_pattern2;
-        color: $base_fontcolor;
-      }
+      @include primary_button(120px, 60px);
+      margin: 0 0 0 8px;
     }
+
     &--secondary {
-      @extend %__btn;
-      border: 1px solid $secondary-btn_bordercolor;
-      background-color: $secondary-btn_bgcolor;
-      color: $secondary-btn_fontcolor;
-      &:hover {
-        background-color: $chroma-pattern1;
-      }
+      @include secondary_button(120px, 60px);
     }
   }
-  &__directMailIcon {
-    margin: 0 16px;
-    font-size: 3.5rem;
+
+  &__textIcon {
+    @include hover_effect(0.5);
+    margin: 0 8px;
+    font-size: 3.0rem;
   }
-  // &__userWrapper {
-  //   &:hover .header__userDropdown {
-  //     display: block;
-  //   }
-  // }
+
+  &__userWrapper {
+    display: inline-block;
+    &:hover > .header__userDropdown {
+      visibility: visible;
+      opacity: 1.0;
+    }
+  }
+
   &__userName {
+    @include hover_effect(0.5);
     display: inline-block;
     font-size: 1.2rem;
     height: 16px;
+
     &::after {
       content: '▼';
       color: $accent_fontcolor2;
     }
+
     &:hover {
-      opacity: 0.5;
+      background-color: $chroma_pattern1;
     }
   }
+
   &__userDropdown {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
     right: 0;
     top: 16px;
     padding: 16px;
-    border: 1px solid $chroma-pattern1;
-    background-color: $chroma-pattern5;
+    border: 1px solid $bright_pattern3;
+    border-radius: 4px;
+    background-color: $chroma_pattern2;
     text-align: center;
-    transition: all .2s ease;
-    z-index: 100;
+    transition: all .5s ease;
+    z-index: 1;
+
+    &Item {
+      padding: 2px;
+    }
   }
 }

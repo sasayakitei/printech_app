@@ -1,40 +1,44 @@
 .oneLine
-  .oneLine__title 人と印刷をつなぐ | コネクプリント
-  .oneLine__subtitle あなただけの”印刷”を発見しよう
+  .oneLine__wrapper
+    .oneLine__title 人と印刷をつなぐ | プリンタム
+    .oneLine__subtitle あなただけの”印刷”を発見しよう
 
 header.header
-  nav.header__navi
-    h1.header__logo
-      = link_to 'コネクプリント', root_path, class: 'header__logoText'
-    ul.header__menu
-      li.header__menuItem
-        = link_to 'ショップ一覧', '#', class: 'header__linkText'
-      li.header__menuItem
-        = link_to '注文一覧', '#', class: 'header__linkText'
-  - if user_signed_in?
-    .header__userMenu--signed_in
-      .header__userWrapper
-        = link_to current_user.nickname, '#', 'v-on:click': 'toggle_dropdown_style', class: 'header__userName'
-        ul.header__userDropdown v-bind:style='dropdown_style'
+  .header__wrapper
+    nav.header__navi
+      h1.header__logo
+        = link_to 'プリンタム', root_path, class: 'header__logoText'
+      ul.header__mainMenu
+        li.header__mainMenuItem
+          = link_to 'ショップ一覧', '#', class: 'header__linkText'
+        li.header__mainMenuItem
+          = link_to '注文一覧', '#', class: 'header__linkText'
+    - if user_signed_in?
+      .header__userMenu--signed_in
+        .header__userWrapper
+          = link_to current_user.nickname, '#', class: 'header__userName'
+          ul.header__userDropdown
+            li.header__userDropdownItem
+              = link_to '出店する', '#', class: 'header__btn--secondary'
+            li.header__userDropdownItem
+              = link_to 'マイページ', '#', class: 'header__linkText'
+            li.header__userDropdownItem
+              = link_to 'お気に入り', '#', class: 'header__linkText'
+            li.header__userDropdownItem
+              = link_to 'サインアウト', destroy_user_session_path, method: :delete, class: 'header__linkText'
+        ul.header__userNavi
+          li.header__userNaviItem
+            = link_to icon('far', 'question-circle'), '#', class: 'header__textIcon'
+          li.header__userNaviItem
+            = link_to icon('far', 'envelope'), '#', class: 'header__textIcon'
+          li.header__userNaviItem
+            = link_to '注文する', '#', class: 'header__btn--primary'
+    - else
+      .header__userMenu
+        ul.header__userNavi
           li
-            = link_to '出店する', '#', class: 'header__btn--secondary'
+            = link_to 'サインイン', new_user_session_path, class: 'header__btn--secondary'
           li
-            = link_to 'マイページ', '#', class: 'header__linkText'
-          li
-            = link_to 'お気に入り', '#', class: 'header__linkText'
-          li
-            = link_to 'サインアウト', destroy_user_session_path, method: :delete, class: 'header__linkText'
-      ul.header__userNavi
-        li
-          = link_to icon('far', 'envelope'), '#', class: 'header__directMailIcon'
-        li
-          = link_to '注文する', '#', class: 'header__btn--primary'
-  - else
-    .header__userMenu
-      ul.header__userNavi
-        li
-          = link_to 'サインイン', new_user_session_path, class: 'header__btn--secondary'
-        li
-          = link_to '無料会員登録', new_user_registration_path, class: 'header__btn--primary'
+            = link_to '無料会員登録', new_user_registration_path, class: 'header__btn--primary'
 
 = javascript_pack_tag '_header'    

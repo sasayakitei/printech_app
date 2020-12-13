@@ -1,11 +1,26 @@
-h1 Devise Test
+.home
+  .home__wrapper
+    .home__headline
+      h2.home__headlineText 表現に“印刷”を
+    .home__content
+      .home__shopList
+        h3.home__shopListTitle 人気のショップ
+        ul.home__shopListContents
+          - 4.times do
+            li.home__shopListItem
+              .home__shopListImage
+              .home__shopListLocation 東京都
+              h4.home__shopListItemName
+                = link_to '株式会社サンプル', '#', class: 'home__shopListItemLink'
+      .home__orderList
+        h3.home__orderListTitle 最新の注文
+        ul.home__orderListContents
+          - 4.times do
+            li.home__orderListItem
+              .home__orderListImage
+              .home__orderListLocation 東京都
+              .home__orderListItemName
+                = link_to '株式会社サンプル', '#', class: 'home__orderListItemLink'
 
-- if user_signed_in?
-  p
-    = current_user.email
-    = link_to 'logout', destroy_user_session_path, method: :delete
-- else
-  p
-    = link_to 'sign up', new_user_registration_path
-  p
-    = link_to 'sign in', new_user_session_path 
+= render 'shared/footer'
+

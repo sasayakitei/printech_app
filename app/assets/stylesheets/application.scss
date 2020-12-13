@@ -11,10 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
- *= require_directory .
+ *= require_directory
  */
-@import "./base/reset";
-@import "./base/html_element";
+@import "./initialize/reset";
+@import "./initialize/html_element";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100&display=swap');

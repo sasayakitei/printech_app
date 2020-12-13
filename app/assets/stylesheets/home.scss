@@ -1,3 +1,103 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "./common/variables";
+@import "./common/mixin";
+
+.home {
+  width: 100%;
+  background-color: $wallpaper_bgcolor;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: $browser_max-width;
+  }
+
+  &__headline {
+    width: 100%;
+    height: 150px;
+    line-height: 150px;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-image: url("./home/backboard.jpg");
+    background-blend-mode: lighten;
+    user-select: none;
+  
+    &Text {
+      font-family: 'M+PLUS+1p', sans-serif;
+      font-size: 3.0rem;
+      font-weight: 700;
+      letter-spacing: 0.4rem;
+      text-align: center;
+      padding: 0 24px;
+      color: $bright_pattern2;
+      white-space: nowrap;
+
+      &::first-letter {
+        background-color: $chroma_pattern5;
+        font-size: 130%;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  @mixin displayList {
+    width: 100%;
+    padding: 16px;
+
+    &Title {
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid $chroma-pattern4;
+
+      &::first-letter {
+        margin-right: 4px;
+        color: $base_fontcolor;
+        background-color: $accent_fontcolor1;
+        font-size: 130%;
+      }
+    }
+
+    &Contents {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      margin: 16px 8px;
+    }
+
+    &Item {
+      display: block;
+      width: 240px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    &Image {
+      width: 100%;
+      height: 150px;
+      background-color: #888888;
+    }
+
+    &Location {
+      font-size: 1.0rem;
+    }
+
+    &ItemName {
+      font-size: 1.2rem;
+      margin: 2px 0;
+    }
+
+    &ItemLink {
+      @include hover_effect(0.5);
+    }
+  }
+
+  &__shopList {
+    @include displayList;
+  }
+
+  &__orderList {
+    @include displayList;
+  }
+}

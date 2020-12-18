@@ -31,6 +31,9 @@ gem 'font-awesome-sass', '~> 5.15.1'
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem 'rails-i18n'
+gem 'devise-i18n'
+
 group :production do
   gem 'pg'
 end

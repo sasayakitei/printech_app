@@ -1,16 +1,21 @@
 import Vue from 'vue/dist/vue.js'
 
 const app = new Vue({
-  el: '.header__userWrapper',
+  el: '.header',
+  data: {
+    isSticky: false
+  },
   methods: {
-    toggle_dropdown_style: function () {
-      this.dropdown_style.display = (this.dropdown_style.display == 'none') ? 'block' : 'none'
+    handleScroll() {
+      if (window.scrollY < 20) {
+        this.isSticky = false
+      } else {
+        this.isSticky = true
+      }
     }
   },
-  data: {
-    dropdown_style: {
-      display: 'none'
-    }
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
   }
 })
 console.log(app)

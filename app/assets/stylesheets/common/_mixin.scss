@@ -150,13 +150,14 @@
   background-color: $bgcolor;
   color: $txtcolor;
   z-index: 100;
+  transition: all 600ms 0s ease;
+  opacity: 1;
   &::before {
-    @extend .far;
-    content: fa-content($fa-var-envelope);
+    @extend .fas;
+    content: fa-content($fa-var-check);
     display: inline-block;
-    position: absolute;
-    left: 0;
-    cursor: pointer;
+    margin: 8px;
+    font-size: 120%;
   }
 }
 

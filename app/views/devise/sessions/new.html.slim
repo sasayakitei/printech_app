@@ -1,18 +1,17 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.userRegistration
+  .userRegistration__wrapper
+    .userRegistration__content
+      h2.userRegistration__title サインイン
+      = form_with model: @user, url: user_session_path, local: true do |f|
+        .userRegistration__email-field
+          = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'メールアドレス'
+        .userRegistration__password-field
+          = f.password_field :password, autocomplete: 'current-password', placeholder: 'パスワード'
+        - if devise_mapping.rememberable?
+          .userRegistration__checkbox-field
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .userRegistration__actions
+          = f.submit 'サインイン'
+
+= render 'shared/footer'

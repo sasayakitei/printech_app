@@ -3,6 +3,7 @@
 
 .userRegistration {
   @include mainContentLayout(600px);
+
   &__content {
     width: 100%;
     padding: 8px;
@@ -43,6 +44,17 @@
     & > .field_with_errors > input {
       border-color: red;
       background-color: #ffaaaa;
+    }
+  }
+
+  &__checkbox-field {
+    margin: 16px auto;
+    width: 300px;
+
+    & input[type="checkbox"] {
+      width:  1.4rem;
+      height: 1.4rem;
+      margin-right: 8px;
     }
   }
 

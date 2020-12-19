@@ -1,6 +1,3 @@
-@import "./common/variables";
-@import "./common/mixin";
-
 .home {
   @include mainContentLayout($browser_max-width);
 

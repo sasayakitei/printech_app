@@ -7,9 +7,14 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    - if notice
-      p.notice = notice
-    - if alert
-      p.alert = alert
-    = render './shared/header'
-    = yield
+    #vueApp
+      - if notice
+        p.notice :style='windowStatus' @click='closeWindow'
+          = notice
+      - if alert
+        p.alert :style='windowStatus' @click='closeWindow'
+          = alert
+      = render './shared/header'
+      = yield
+
+= javascript_pack_tag '_notification'

@@ -4,6 +4,7 @@
 
 @mixin mainContentLayout($max-width) {
   width: 100%;
+  min-height: calc(100vh - #{$header_height} - #{$footer_height});
   background-color: $wallpaper_bgcolor;
   overflow: hidden;
 
@@ -15,6 +16,7 @@
 
 @mixin mainHeadlineLayout($font-size, $color, $first-letter-color, $accent-color) {
   font-size: $font-size;
+  font-family: 'M PLUS 1p', sans-serif;
   font-weight: bold;
   border-bottom: 2px solid $accent-color;
   color: $color;
@@ -76,7 +78,7 @@
   line-height: $font-size;
   width:  $width;
   border: 1px solid $bright_pattern1;
-  border-radius: $font-size;
+  border-radius: 4px;
   font-size: $font-size;
   padding: 8px 16px;
   background-color: #ffffff;
@@ -134,6 +136,20 @@
   &:hover {
     @include _button_hover($chroma-pattern1, inherit, inherit);
   }
+}
+
+/* Notification Style */
+
+@mixin notification($bgcolor, $txtcolor) {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+  background-color: $bgcolor;
+  color: $txtcolor;
 }
 
 /* Other Styles */

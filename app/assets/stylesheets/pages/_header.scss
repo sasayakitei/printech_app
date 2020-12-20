@@ -1,0 +1,167 @@
+$oneLine_bgcolor: $key_color;
+$oneLine_fontcolor: $base_fontcolor;
+
+.oneLine {
+  padding: 4px;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  background-color: $oneLine_bgcolor;
+  color: $oneLine_fontcolor;
+  font-size: 1.4rem;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: $browser_max-width;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    white-space: nowrap;
+  }
+
+  &__subtitle {
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+.header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  width:  $header_width;
+  height: $header_height;
+  background-color: $header_bgcolor;
+  color: $header_fontcolor;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: $browser_max-width;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__navi {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    margin: 16px;
+    white-space: nowrap;
+
+    &Text {
+      @include hover_effect(0.5);
+      font-family: 'Nico Moji';
+      font-size: 3.8rem;
+    }
+  }
+
+  &__mainMenu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.6rem;
+    margin: 16px;
+    font-weight: bold;
+
+    &Item {
+      margin: 0 24px;
+      white-space: nowrap;
+    }
+  }
+
+  &__linkText {
+    @include hover_effect(0.5);
+  }
+
+  %__userMenu {
+    position: relative;
+    height: auto;
+    text-align: right;
+  }
+  &__userMenu {
+    @extend %__userMenu;
+    margin: 0 16px;
+
+    &--signed_in {
+      @extend %__userMenu;
+      margin: -16px 16px 0;
+    }
+  }
+
+  &__userNavi {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 80%;
+    position: relative;
+    bottom: 0;
+  }
+
+  &__btn {
+    &--primary {
+      @include primary_button(120px, 60px);
+      margin: 0 0 0 8px;
+    }
+
+    &--secondary {
+      @include secondary_button(120px, 60px);
+    }
+  }
+
+  &__textIcon {
+    @include hover_effect(0.5);
+    margin: 0 8px;
+    font-size: 3.0rem;
+  }
+
+  &__userWrapper {
+    display: inline-block;
+    &:hover > .header__userDropdown {
+      visibility: visible;
+      opacity: 1.0;
+    }
+  }
+
+  &__userName {
+    @include hover_effect(0.5);
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 16px;
+
+    &::after {
+      content: '▼';
+      color: $accent_fontcolor2;
+    }
+
+    &:hover {
+      background-color: $chroma_pattern1;
+    }
+  }
+
+  &__userDropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 16px;
+    padding: 16px;
+    border: 1px solid $bright_pattern3;
+    border-radius: 4px;
+    background-color: $chroma_pattern2;
+    text-align: center;
+    transition: all .5s ease;
+    z-index: 1;
+
+    &Item {
+      padding: 2px;
+    }
+  }
+}

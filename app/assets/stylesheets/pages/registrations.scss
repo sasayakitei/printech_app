@@ -1,0 +1,68 @@
+.userRegistration {
+  @include mainContentLayout(600px);
+
+  &__content {
+    width: 100%;
+    padding: 8px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  &__title {
+    @include mainHeadlineLayout(2rem, $base_fontcolor, $base_fontcolor, $chroma-pattern4);
+    margin: 24px 0 32px;
+  }
+
+  &__email-field,
+  &__nickname-field,
+  &__password-field,
+  &__password_confirmation-field {
+    margin: 16px auto;
+    width: 300px;
+
+    & label {
+      display: block;
+      margin: 0 0 4px 8px;
+
+      &::after {
+        content: "必須";
+        margin-left: 4px;
+        font-size: 80%;
+        background-color: red;
+        color: #ffffff;
+        font-weight: bold;
+      }
+    }
+
+    & input {
+      @include _input-field(1.4rem, 300px);
+    }
+
+    & > .field_with_errors > input {
+      border-color: red;
+      background-color: #ffaaaa;
+    }
+  }
+
+  &__checkbox-field {
+    margin: 16px auto;
+    width: 300px;
+
+    & input[type="checkbox"] {
+      width:  1.4rem;
+      height: 1.4rem;
+      margin-right: 8px;
+    }
+  }
+
+  &__actions {
+    margin: 32px 0 16px;
+    border-top: 1px solid $chroma-pattern4;
+    text-align: center;
+
+    & input[type="submit"] {
+      @include primary_button(150px, 60px);
+      margin: 16px auto;
+    }
+  }
+}

@@ -1,7 +1,0 @@
-.notice {
-  @include notification($hexad_pattern1, $base_fontcolor);
-}
-
-.alert {
-  @include notification($hexad_pattern5, $base_fontcolor);
-}

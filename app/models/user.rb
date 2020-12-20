@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :addresses
-  has_many :shops
+  has_many :addresses, dependent: :destroy
+  has_many :shops, dependent: :destroy
 
   validates :nickname, length: { in: 3..16 }
   validates :avatar_url,

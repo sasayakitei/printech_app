@@ -11,17 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "./initialize/reset";
-@import "./initialize/html_element";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import "./initialize/*";
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
-@import "./common/variables";
-@import "./common/mixin";
-@import "./header";
-@import "./footer";
-@import "./notification";
-@import "./home";
-@import "./registrations";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "./common/*";
+@import "./pages/*";

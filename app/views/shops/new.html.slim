@@ -1,0 +1,24 @@
+.shopForm
+  .shopForm__wrapper
+    .shopForm__content
+      h2.shopForm__title 新規ショップ登録
+      = form_with model: @shop, local: true do |f|
+        .shopForm__name-field
+          = f.label :name
+          = f.text_field :name, autofocus: true, placeholder: '例）プリントショップ「プリンタム」'
+        .shopForm__description-field
+          = f.label :description
+          = f.text_area :description, placeholder: 'お店の説明（1024文字以内）'
+        .shopForm__website_url-field
+          = f.label :website_url
+          = f.url_field :website_url, placeholder: 'https://'
+        .shopForm__email-field
+          = f.label :email
+          = f.email_field :email, autocomplete: 'email', placeholder: '例）printum@gmail.com'
+        .shopForm__phone_number-field
+          = f.label :phone_number
+          = f.telephone_field :phone_number, autocomplete: 'phone', placeholder: 'ハイフンなし'
+        .shopForm__actions
+          = f.submit 'ショップ登録'
+
+= render 'shared/footer'

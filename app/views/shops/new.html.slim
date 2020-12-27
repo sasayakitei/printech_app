@@ -4,10 +4,10 @@
       h2.shopForm__title 新規ショップ登録
       = form_with model: @shop, local: true do |f|
         .shopForm__name-field
-          = f.label :name
+          = f.label :name, class: 'require'
           = f.text_field :name, autofocus: true, placeholder: '例）プリントショップ「プリンタム」'
         .shopForm__description-field
-          = f.label :description
+          = f.label :description, class: 'require'
           = f.text_area :description, placeholder: 'お店の説明（1024文字以内）'
         .shopForm__website_url-field
           = f.label :website_url

@@ -9,6 +9,14 @@ class ShopsController < ApplicationController
   end
 
   def create
+    @shop = Shop.new(shop_params)
+    if @shop.save
+      flash[:notice] = 'ショップが登録されました'
+      redirect_to root_path
+    else
+      flash.now[:alert] = '登録エラーです'
+      render :new
+    end
   end
 
   def edit

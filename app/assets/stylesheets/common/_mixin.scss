@@ -11,9 +11,17 @@
     margin: 0 auto;
     max-width: $max-width;
   }
+
+  &__content {
+    width: 100%;
+    padding: 8px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
 }
 
 @mixin mainHeadlineLayout($font-size, $color, $first-letter-color, $accent-color) {
+  margin: 24px 0 32px;
   font-size: $font-size;
   font-family: 'M PLUS 1p', sans-serif;
   font-weight: bold;
@@ -83,12 +91,54 @@
   background-color: #ffffff;
 }
 
-@mixin _password-field {
-
+@mixin _text-area($font-size, $width, $height) {
+  height: $height;
+  width:  $width;
+  border: 1px solid $bright_pattern1;
+  border-radius: 4px;
+  font-size: $font-size;
+  padding: 8px 16px;
+  background-color: #ffffff;
 }
 
-@mixin _text-field {
+@mixin form-field($width) {
+  margin: 16px auto;
+  width: $width;
 
+  & label {
+    display: block;
+    margin: 0 0 4px 8px;
+  }
+
+  & label.require::after {
+    content: "必須";
+    display: inline-block;
+    padding: 2px;
+    margin-left: 4px;
+    font-size: 80%;
+    background-color: $chroma-pattern5;
+    color: $base_fontcolor;
+    font-weight: bold;
+  }
+
+  & input {
+    @include _input-field(100%, $width);
+  }
+
+  & textarea {
+    @include _text-area(100%, $width, auto);
+  }
+
+  & input[type="checkbox"] {
+    width:  1.4rem;
+    height: 1.4rem;
+    margin-right: 8px;
+  }
+
+  & > .field_with_errors > input {
+    border-color: #ff0000;
+    background-color: #ffaaaa;
+  }
 }
 
 /* Button Styles */

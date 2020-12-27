@@ -1,22 +1,16 @@
-.userRegistration {
+.shopForm {
   @include mainContentLayout(600px);
 
   &__title {
     @include mainHeadlineLayout(2rem, $base_fontcolor, $base_fontcolor, $chroma-pattern4);
   }
 
+  &__name-field,
+  &__description-field,
+  &__website_url-field,
   &__email-field,
-  &__nickname-field,
-  &__password-field,
-  &__password_confirmation-field {
-    @include form-field(300px);
-  }
-
-  &__checkbox-field {
-    @include form-field(300px);
-    & label {
-      display: inline-block;
-    }
+  &__phone_number-field {
+    @include form-field(400px);
   }
 
   &__actions {

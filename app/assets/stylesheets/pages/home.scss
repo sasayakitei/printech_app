@@ -27,12 +27,6 @@
     }
   }
 
-  &__content {
-    width: 100%;
-    background-color: #ffffff;
-    overflow: hidden;
-  }
-
   &__shopList {
     @include home__mainListLayout;
   }

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_122118) do
+ActiveRecord::Schema.define(version: 2020_12_28_033852) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name", null: false
     t.string "zipcode", null: false
-    t.integer "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "block", null: false
     t.string "building"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_122118) do
     t.bigint "shop_id"
     t.string "name", null: false
     t.string "zipcode", null: false
-    t.integer "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "block", null: false
     t.string "building"

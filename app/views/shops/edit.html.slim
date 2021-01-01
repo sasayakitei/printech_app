@@ -1,0 +1,7 @@
+.shopForm
+  .shopForm__wrapper
+    .shopForm__content
+      h2.shopForm__title ショップ情報編集
+      = render partial: 'form', locals: { shop: @shop, button_text: '編集実行' }
+
+= render 'shared/footer'

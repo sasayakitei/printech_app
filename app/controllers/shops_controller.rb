@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShopsController < ApplicationController
-  before_action :require_signed_in, only: %i[new create edit]
+  before_action :require_signed_in, only: %i[new create edit update]
 
   def index; end
 
@@ -22,11 +22,19 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    @shop = Shop.find_by(params[:id])
+    @shop = Shop.find(params[:id])
     redirect_to root_path unless @shop.user == current_user
   end
 
   def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      flash[:notice] = 'ショップ情報が更新されました'
+      redirect_to edit_shop_path(@shop)
+    else
+      flash.now[:alert] = '更新エラーです'
+      render :edit
+    end
   end
 
   def show; end

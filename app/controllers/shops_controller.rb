@@ -59,8 +59,4 @@ class ShopsController < ApplicationController
       ]
     ).merge(user_id: current_user.id)
   end
-
-  def shop_address_params
-    params.require(:shop).permit(shop_address: [:name, :zipcode, :prefecture_id, :city, :block, :building, :note])
-  end
 end

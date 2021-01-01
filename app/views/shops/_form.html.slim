@@ -1,0 +1,34 @@
+= form_with model: shop, local: true do |f|
+  .shopForm__name-field
+    = f.label :name, class: 'require'
+    = f.text_field :name, autofocus: true, placeholder: '例）プリントショップ「プリンタム」'
+  .shopForm__description-field
+    = f.label :description, class: 'require'
+    = f.text_area :description, placeholder: 'お店の説明（1024文字以内）'
+  .shopForm__website_url-field
+    = f.label :website_url
+    = f.url_field :website_url, placeholder: 'https://'
+  .shopForm__email-field
+    = f.label :email
+    = f.email_field :email, autocomplete: 'email', placeholder: '例）printum@gmail.com'
+  .shopForm__phone_number-field
+    = f.label :phone_number
+    = f.telephone_field :phone_number, autocomplete: 'phone', placeholder: 'ハイフンなし'
+  = f.fields_for :shop_address do |i|
+    .shopForm__zipcode-field
+      = i.label :zipcode, class: 'require'
+      = i.text_field :zipcode, autocomplete: 'zipcode', placeholder: 'ハイフンなし'
+    .shopForm__prefecture-field
+      = i.label :prefecture, class: 'require'
+      = i.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: '選択してください'
+    .shopForm__city-field
+      = i.label :city, class: 'require'
+      = i.text_field :city, autocomplete: 'city', placeholder: '市区町村'
+    .shopForm__block-field
+      = i.label :block, class: 'require'
+      = i.text_field :block, autocomplete: 'block', placeholder: '番地'
+    .shopForm__building-field
+      = i.label :building
+      = i.text_field :building, autocomplete: 'building', placeholder: '建物名・階数'
+  .shopForm__actions
+    = f.submit button_text

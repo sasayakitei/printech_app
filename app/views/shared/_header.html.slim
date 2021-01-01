@@ -19,7 +19,7 @@ header.header
           = link_to current_user.nickname, '#', class: 'header__userName'
           ul.header__userDropdown
             li.header__userDropdownItem
-              = link_to '出店する', '#', class: 'header__btn--secondary'
+              = link_to 'ショップ登録', new_shop_path, class: 'header__btn--secondary'
             li.header__userDropdownItem
               = link_to 'マイページ', '#', class: 'header__linkText'
             li.header__userDropdownItem

@@ -34,6 +34,8 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'rails-i18n'
 gem 'devise-i18n'
 
+gem 'active_hash'
+
 group :production do
   gem 'pg'
 end

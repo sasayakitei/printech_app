@@ -9,20 +9,23 @@
     background-image: url("./home/backboard.jpg");
     background-blend-mode: lighten;
     user-select: none;
+    background-size: cover;
+    background-position: center center;
   
     &Text {
       font-family: 'M+PLUS+1p', sans-serif;
       font-size: 3.0rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.4rem;
       text-align: center;
       padding: 0 24px;
-      color: $bright_pattern2;
+      color: $bright_pattern1;
       white-space: nowrap;
 
       &::first-letter {
         background-color: $chroma_pattern5;
-        font-size: 130%;
+        font-size: 200%;
+        margin-right: 16px;
       }
     }
   }

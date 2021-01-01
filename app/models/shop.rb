@@ -4,6 +4,7 @@ class Shop < ApplicationRecord
   belongs_to :user
   has_one :shop_address, dependent: :destroy
   validates_associated :shop_address
+  accepts_nested_attributes_for :shop_address
 
   validates :name,
             length: { maximum: 32 },

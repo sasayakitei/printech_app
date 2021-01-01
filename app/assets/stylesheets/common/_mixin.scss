@@ -129,6 +129,10 @@
     @include _text-area(100%, $width, auto);
   }
 
+  & select {
+    @include _input-field(100%, $width)
+  }
+
   & input[type="checkbox"] {
     width:  1.4rem;
     height: 1.4rem;

@@ -9,7 +9,12 @@
   &__description-field,
   &__website_url-field,
   &__email-field,
-  &__phone_number-field {
+  &__phone_number-field,
+  &__zipcode-field,
+  &__prefecture-field,
+  &__city-field,
+  &__block-field,
+  &__building-field {
     @include form-field(400px);
   }
 
